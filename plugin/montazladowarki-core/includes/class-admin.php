@@ -53,11 +53,13 @@ class MLC_Admin {
 		MLC_Frontend::register_assets();
 		wp_enqueue_style( 'mlc-core' );
 		wp_enqueue_script( 'mlc-areas' );
+		wp_enqueue_script( 'mlc-google' );
 	}
 
 	public static function meta_boxes(): void {
 		add_meta_box( 'mlc_details', __( 'Dane firmy', 'mlc' ), array( __CLASS__, 'box_details' ), 'mlc_installer', 'normal', 'high' );
 		add_meta_box( 'mlc_areas', __( 'Obszar działania', 'mlc' ), array( __CLASS__, 'box_areas' ), 'mlc_installer', 'normal', 'high' );
+		add_meta_box( 'mlc_google', __( 'Wizytówka Google', 'mlc' ), array( __CLASS__, 'box_google' ), 'mlc_installer', 'normal', 'default' );
 		add_meta_box( 'mlc_promo', __( 'Promowanie i weryfikacja', 'mlc' ), array( __CLASS__, 'box_promo' ), 'mlc_installer', 'side', 'high' );
 		add_meta_box( 'mlc_lead_details', __( 'Treść zapytania', 'mlc' ), array( 'MLC_Leads', 'admin_box' ), 'mlc_lead', 'normal', 'high' );
 	}
@@ -80,6 +82,29 @@ class MLC_Admin {
 
 	public static function box_areas( WP_Post $post ): void {
 		mlc_template( 'areas-field.php', array( 'areas' => MLC_Post_Types::get_areas( $post->ID ) ) );
+	}
+
+	public static function box_google( WP_Post $post ): void {
+		if ( ! MLC_Google::enabled() ) {
+			echo '<p>' . esc_html__( 'Dodaj klucz Google Places API w Ustawieniach katalogu, aby łączyć profile z wizytówkami Google.', 'mlc' ) . '</p>';
+			return;
+		}
+		mlc_template( 'google-picker.php', array( 'installer' => $post->ID ) );
+	}
+
+	/**
+	 * Zapis place ID (wspólny dla admina i panelu instalatora).
+	 */
+	public static function save_place_id( int $post_id, array $post ): void {
+		if ( ! array_key_exists( 'mlc_place_id', $post ) ) {
+			return;
+		}
+		$pid = MLC_Google::sanitize_place_id( (string) $post['mlc_place_id'] );
+		if ( $pid ) {
+			update_post_meta( $post_id, '_mlc_place_id', $pid );
+		} else {
+			delete_post_meta( $post_id, '_mlc_place_id' );
+		}
 	}
 
 	public static function box_promo( WP_Post $post ): void {
@@ -111,6 +136,7 @@ class MLC_Admin {
 		$data = isset( $_POST['mlc'] ) ? wp_unslash( (array) $_POST['mlc'] ) : array(); // phpcs:ignore
 		self::save_fields( $post_id, $data );
 
+		self::save_place_id( $post_id, wp_unslash( $_POST ) ); // phpcs:ignore
 		$areas = isset( $_POST['mlc_areas'] ) ? wp_unslash( (array) $_POST['mlc_areas'] ) : array(); // phpcs:ignore
 		MLC_Post_Types::save_areas( $post_id, $areas );
 
@@ -252,6 +278,7 @@ class MLC_Admin {
 			'admin_email'       => sanitize_email( $in['admin_email'] ?? $old['admin_email'] ),
 			'map_tiles'         => esc_url_raw( $in['map_tiles'] ?? $old['map_tiles'] ),
 			'map_attribution'   => wp_kses_post( $in['map_attribution'] ?? $old['map_attribution'] ),
+			'google_key'        => sanitize_text_field( $in['google_key'] ?? $old['google_key'] ),
 		);
 		if ( $out['city_base'] !== $old['city_base'] ) {
 			update_option( 'mlc_flush_rewrite', 1 );
@@ -276,6 +303,7 @@ class MLC_Admin {
 					<tr><th><?php esc_html_e( 'Wyników na stronę', 'mlc' ); ?></th><td><input type="number" min="5" max="100" name="mlc_settings[per_page]" value="<?php echo esc_attr( $s['per_page'] ); ?>" style="width:70px"></td></tr>
 					<tr><th><?php esc_html_e( 'E-mail powiadomień', 'mlc' ); ?></th><td><input class="regular-text" type="email" name="mlc_settings[admin_email]" value="<?php echo esc_attr( $s['admin_email'] ); ?>"></td></tr>
 					<tr><th><?php esc_html_e( 'Kafelki mapy', 'mlc' ); ?></th><td><input class="large-text" name="mlc_settings[map_tiles]" value="<?php echo esc_attr( $s['map_tiles'] ); ?>"><p class="description"><?php esc_html_e( 'Przy dużym ruchu użyj komercyjnego dostawcy kafelków (np. MapTiler, Stadia) — publiczne serwery OSM mają limity.', 'mlc' ); ?></p></td></tr>
+					<tr><th><?php esc_html_e( 'Klucz Google Places API', 'mlc' ); ?></th><td><input class="regular-text" type="password" autocomplete="off" name="mlc_settings[google_key]" value="<?php echo esc_attr( $s['google_key'] ); ?>"><p class="description"><?php esc_html_e( 'Places API (New). Klucz działa tylko po stronie serwera — ogranicz go w Google Cloud do adresu IP serwera. Możesz też zdefiniować MLC_GOOGLE_API_KEY w wp-config.php. W bazie zapisujemy tylko place ID; ocena i godziny są pobierane na żywo (zgodnie z warunkami Google).', 'mlc' ); ?></p></td></tr>
 					<tr><th><?php esc_html_e( 'Atrybucja mapy', 'mlc' ); ?></th><td><input class="large-text" name="mlc_settings[map_attribution]" value="<?php echo esc_attr( $s['map_attribution'] ); ?>"></td></tr>
 				</table>
 				<?php submit_button(); ?>
@@ -293,6 +321,16 @@ class MLC_Admin {
 				<input type="hidden" name="action" value="mlc_tool"><input type="hidden" name="tool" value="places">
 				<?php submit_button( __( 'Zaimportuj ponownie miejscowości', 'mlc' ), 'secondary', 'submit', false ); ?>
 			</form>
+			<?php if ( MLC_Google::enabled() ) : ?>
+				<h2><?php esc_html_e( 'Wizytówki Google', 'mlc' ); ?></h2>
+				<p><?php esc_html_e( 'Wyszukuje w Google firmy bez połączonej wizytówki i zapisuje place ID tylko wtedy, gdy strona WWW w wizytówce zgadza się ze stroną firmy. Każda firma to jedno płatne zapytanie do API.', 'mlc' ); ?></p>
+				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+					<?php wp_nonce_field( 'mlc_tool' ); ?>
+					<input type="hidden" name="action" value="mlc_tool"><input type="hidden" name="tool" value="google">
+					<?php submit_button( __( 'Dopasuj wizytówki Google', 'mlc' ), 'secondary', 'submit', false ); ?>
+				</form>
+			<?php endif; ?>
+
 			<h2><?php esc_html_e( 'Import firm', 'mlc' ); ?></h2>
 			<p><?php esc_html_e( 'Firmy z importu są publikowane jako „Profil niezweryfikowany” i mogą zostać przejęte przez właścicieli. Duplikaty (ta sama domena strony WWW) są pomijane.', 'mlc' ); ?></p>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:inline-block;margin-right:8px">
@@ -324,6 +362,12 @@ class MLC_Admin {
 			$msg = 'counts:' . count( MLC_Search::rebuild_city_counts() );
 		} elseif ( 'places' === $tool ) {
 			$msg = 'places:' . MLC_Install::import_places();
+		} elseif ( 'google' === $tool ) {
+			if ( function_exists( 'set_time_limit' ) ) {
+				@set_time_limit( 600 ); // phpcs:ignore
+			}
+			$r   = MLC_Google::match_all();
+			$msg = 'google:' . $r['matched'] . ':' . $r['none'] . ':' . $r['errors'] . ':' . rawurlencode( $r['last'] );
 		} elseif ( 'starter' === $tool ) {
 			$r   = MLC_Importer::import_file( MLC_DIR . 'data/starter-firms.json' );
 			$msg = 'import:' . $r['added'] . ':' . $r['skipped'];
@@ -347,7 +391,9 @@ class MLC_Admin {
 			return;
 		}
 		$parts = explode( ':', sanitize_text_field( wp_unslash( $_GET['mlc_msg'] ) ) ); // phpcs:ignore
-		if ( 'import' === $parts[0] ) {
+		if ( 'google' === $parts[0] ) {
+			$text = sprintf( __( 'Wizytówki Google — dopasowano: %1$d, bez pewnego dopasowania: %2$d, błędy: %3$d. %4$s', 'mlc' ), (int) ( $parts[1] ?? 0 ), (int) ( $parts[2] ?? 0 ), (int) ( $parts[3] ?? 0 ), rawurldecode( (string) ( $parts[4] ?? '' ) ) );
+		} elseif ( 'import' === $parts[0] ) {
 			$text = sprintf( __( 'Dodano firm: %1$d, pominięto: %2$d. Strony miast przeliczą się w ciągu minuty.', 'mlc' ), (int) ( $parts[1] ?? 0 ), (int) ( $parts[2] ?? 0 ) );
 		} else {
 			$text = 'counts' === $parts[0]

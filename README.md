@@ -52,6 +52,16 @@ Zaimportowane firmy:
 
 Przed publikacją uzupełnij politykę prywatności o: przetwarzanie danych firm z publicznych źródeł (często to jednoosobowe działalności, czyli dane osobowe), źródło danych, prawo sprzeciwu i usunięcia. Nie wysyłaj do tych firm masowych maili marketingowych bez ich zgody.
 
+## Wizytówki Google (zgodnie z warunkami Google)
+
+Po wpisaniu klucza **Places API (New)** w *Instalatorzy → Ustawienia* (albo `define( 'MLC_GOOGLE_API_KEY', '...' );` w `wp-config.php`):
+
+- **Dopasuj wizytówki Google** (przycisk w ustawieniach) wyszukuje każdą firmę i zapisuje jej **place ID tylko wtedy, gdy strona WWW w wizytówce zgadza się ze stroną firmy**. Firm bez pewnego dopasowania nie odpytuje ponownie.
+- Admin i instalator mogą też ręcznie połączyć profil z wizytówką („Szukaj w Google” w edycji firmy i w panelu).
+- Na profilu firmy blok **„Opinie i godziny”** pobiera na żywo ocenę, liczbę opinii, telefon i godziny, z podpisem „Google Maps” i linkiem do Map Google. Te dane **nie są zapisywane w bazie** ani pokazywane robotom (ładowane skryptem po wyświetleniu).
+- W bazie trzymamy wyłącznie place ID — to jedyny element, który warunki Google pozwalają przechowywać bez ograniczeń.
+- Koszty: każde dopasowanie i każde wyświetlenie bloku na profilu to płatne zapytanie do API. Endpoint ma limit 60 zapytań na godzinę z jednego IP (filtr `mlc_google_rate_limit`). Ustaw w Google Cloud budżet i alerty oraz ogranicz klucz do IP serwera.
+
 ## SEO
 
 - **Strony miast** `/montaz-ladowarki/{miasto}/` dla 954 miast: unikalne H1, opis z liczbą firm, statystyki (cena od, firmy z SEP), lista firm z mapą, FAQ z lokalnymi danymi, linki do pobliskich miast.

@@ -283,3 +283,20 @@
 .mlc-report { margin: 2rem 0 0; font-size: .92rem; }
 .mlc-report summary { cursor: pointer; color: var(--mlc-muted); }
 .mlc-report form { margin-top: 1rem; max-width: 720px; }
+
+/* Google Maps */
+.mlc-g { margin-bottom: 1rem; }
+.mlc-g__rating { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.mlc-g__rating strong { font-size: 1.6rem; font-family: var(--mlc-font-head); }
+.mlc-g__stars { display: inline-flex; }
+.mlc-star { position: relative; color: #d9d6cc; font-size: 1.1rem; line-height: 1; }
+.mlc-star::before { content: "★"; position: absolute; left: 0; top: 0; width: var(--f); overflow: hidden; color: #f4b400; }
+.mlc-g__hours ul { list-style: none; padding: 0; margin: .5rem 0 0; font-size: .88rem; }
+.mlc-g__hours summary { cursor: pointer; font-weight: 600; }
+.mlc-g__attr { margin: .8rem 0 0; font-size: .75rem; color: var(--mlc-muted); }
+.mlc-g__attr span { font-family: Roboto, Arial, sans-serif; font-weight: 500; color: #5e5e5e; }
+.mlc-gpicker__row { display: flex; gap: .5rem; }
+.mlc-gpicker__row .mlc-input { flex: 1; }
+.mlc-gpicker__list { list-style: none; padding: 0; margin: .6rem 0 0; display: grid; gap: .4rem; }
+.mlc-g__pick { width: 100%; text-align: left; padding: .6rem .8rem; border: 1.5px solid var(--mlc-line); border-radius: 10px; background: var(--mlc-surface); cursor: pointer; font: inherit; }
+.mlc-g__pick:hover { border-color: var(--mlc-ink); }

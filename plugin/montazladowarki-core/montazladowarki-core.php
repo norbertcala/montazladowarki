@@ -34,6 +34,7 @@ require_once MLC_DIR . 'includes/class-seo.php';
 require_once MLC_DIR . 'includes/class-frontend.php';
 require_once MLC_DIR . 'includes/class-importer.php';
 require_once MLC_DIR . 'includes/class-claims.php';
+require_once MLC_DIR . 'includes/class-google.php';
 
 register_activation_hook( __FILE__, array( 'MLC_Install', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'MLC_Install', 'deactivate' ) );
@@ -52,5 +53,6 @@ add_action(
 		MLC_Frontend::init();
 		MLC_Importer::init();
 		MLC_Claims::init();
+		MLC_Google::init();
 	}
 );

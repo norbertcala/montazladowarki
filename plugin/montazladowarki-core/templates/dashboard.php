@@ -115,6 +115,13 @@ $areas    = MLC_Post_Types::get_areas( $post_id );
 			</div>
 		</section>
 
+		<?php if ( MLC_Google::enabled() ) : ?>
+			<section class="mlc-dash__section">
+				<h3><?php esc_html_e( 'Wizytówka Google', 'mlc' ); ?></h3>
+				<?php mlc_template( 'google-picker.php', array( 'installer' => $post_id ) ); ?>
+			</section>
+		<?php endif; ?>
+
 		<section class="mlc-dash__section">
 			<h3><?php esc_html_e( 'Obszar działania', 'mlc' ); ?></h3>
 			<?php mlc_template( 'areas-field.php', array( 'areas' => $areas ) ); ?>

@@ -163,6 +163,13 @@ while ( have_posts() ) :
 				</div>
 
 				<aside class="mlc-profile__side">
+					<?php if ( MLC_Google::enabled() && MLC_Google::place_id( $id ) ) : ?>
+						<div class="mlc-g mlc-panel" data-mlc-google="<?php echo (int) $id; ?>" data-has-phone="<?php echo $m( 'phone' ) ? '1' : '0'; ?>" hidden>
+							<p class="mlc-eyebrow"><?php esc_html_e( 'Opinie i godziny', 'mlc' ); ?></p>
+							<div data-mlc-g-body></div>
+							<p class="mlc-g__attr"><?php esc_html_e( 'Źródło:', 'mlc' ); ?> <span>Google Maps</span></p>
+						</div>
+					<?php endif; ?>
 					<?php if ( $details ) : ?>
 						<dl class="mlc-details mlc-panel">
 							<?php foreach ( $details as $label => $value ) : ?>

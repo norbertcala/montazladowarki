@@ -181,6 +181,7 @@ class MLC_Dashboard {
 		);
 		MLC_Admin::save_fields( $post_id, (array) ( $p['mlc'] ?? array() ) );
 		MLC_Post_Types::save_areas( $post_id, (array) ( $p['mlc_areas'] ?? array() ) );
+		MLC_Admin::save_place_id( $post_id, $p );
 
 		$services = array_map( 'absint', (array) ( $p['services'] ?? array() ) );
 		wp_set_object_terms( $post_id, $services, 'mlc_service' );

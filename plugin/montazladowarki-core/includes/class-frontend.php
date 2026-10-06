@@ -27,6 +27,7 @@ class MLC_Frontend {
 		wp_register_script( 'mlc-search', MLC_URL . 'assets/js/search.js', array( 'mlc-autocomplete' ), MLC_VERSION, true );
 		wp_register_script( 'mlc-map', MLC_URL . 'assets/js/map.js', array( 'leaflet' ), MLC_VERSION, true );
 		wp_register_script( 'mlc-areas', MLC_URL . 'assets/js/areas.js', array( 'mlc-autocomplete' ), MLC_VERSION, true );
+		wp_register_script( 'mlc-google', MLC_URL . 'assets/js/google.js', array( 'mlc-autocomplete' ), MLC_VERSION, true );
 		wp_localize_script(
 			'mlc-autocomplete',
 			'MLC',
@@ -35,6 +36,7 @@ class MLC_Frontend {
 				'tiles'     => mlc_setting( 'map_tiles' ),
 				'attrib'    => mlc_setting( 'map_attribution' ),
 				'leadMax'   => (int) mlc_setting( 'lead_max' ),
+				'nonce'     => is_user_logged_in() ? wp_create_nonce( 'wp_rest' ) : '',
 				'radii'     => mlc_radius_options(),
 				'i18n'      => array(
 					'noResults'  => __( 'Brak podpowiedzi — wpisz nazwę miejscowości', 'mlc' ),
@@ -60,6 +62,9 @@ class MLC_Frontend {
 		}
 		if ( is_page( mlc_page_id( 'dashboard' ) ) || is_page( mlc_page_id( 'join' ) ) ) {
 			wp_enqueue_script( 'mlc-areas' );
+		}
+		if ( MLC_Google::enabled() && ( is_singular( 'mlc_installer' ) || is_page( mlc_page_id( 'dashboard' ) ) ) ) {
+			wp_enqueue_script( 'mlc-google' );
 		}
 	}
 

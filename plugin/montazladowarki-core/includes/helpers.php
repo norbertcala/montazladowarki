@@ -21,6 +21,7 @@ function mlc_settings(): array {
 		'map_tiles'         => 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		'map_attribution'   => '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 		'promotion_enabled' => 1,
+		'google_key'        => '',
 	);
 	$saved = get_option( 'mlc_settings', array() );
 	return wp_parse_args( is_array( $saved ) ? $saved : array(), $defaults );
