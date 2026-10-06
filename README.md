@@ -38,6 +38,20 @@ Wymagania: WordPress 6.4+, PHP 8.0+, MySQL 5.7+/MariaDB 10.3+.
 
 **Promowanie.** W edycji firmy (panel admina) ustawiasz datę „Promowane do”. Firma trafia na górę list, dostaje znacznik i wyróżnioną pinezkę. Na razie ręcznie — patrz plan rozwoju.
 
+## Baza startowa i profile niezweryfikowane
+
+Wtyczka zawiera `data/starter-firms.json` — 99 firm montujących ładowarki, znalezionych w internecie (październik 2026). 12 z nich (Wielkopolska i Kujawy) sprawdzono na stronach firm, pozostałe pochodzą z wyników wyszukiwania (nazwa, miejscowość, strona WWW).
+
+Import: **Instalatorzy → Ustawienia → Zaimportuj bazę startową** albo `wp mlc import`. Własne listy: plik CSV/JSON przez ten sam ekran lub `wp mlc import plik.csv`. Duplikaty (ta sama domena WWW) są pomijane.
+
+Zaimportowane firmy:
+- mają znacznik **„Profil niezweryfikowany”**, link do źródła i są w wynikach za firmami, które same prowadzą profil,
+- mogą **przejąć profil** (`/dla-instalatorow/?przejmij=ID`): e-mail w domenie strony firmy → przejęcie od razu; inny e-mail → prośba do administratora z przyciskiem „Zatwierdź przejęcie” (sprawdź telefonicznie),
+- mogą **zgłosić poprawkę lub usunięcie** formularzem na dole profilu,
+- zapytania do firm bez e-maila trafiają do administratora z prośbą o przekazanie telefoniczne — to dobry pretekst, by zaproponować przejęcie profilu.
+
+Przed publikacją uzupełnij politykę prywatności o: przetwarzanie danych firm z publicznych źródeł (często to jednoosobowe działalności, czyli dane osobowe), źródło danych, prawo sprzeciwu i usunięcia. Nie wysyłaj do tych firm masowych maili marketingowych bez ich zgody.
+
 ## SEO
 
 - **Strony miast** `/montaz-ladowarki/{miasto}/` dla 954 miast: unikalne H1, opis z liczbą firm, statystyki (cena od, firmy z SEP), lista firm z mapą, FAQ z lokalnymi danymi, linki do pobliskich miast.

@@ -48,6 +48,9 @@ if ( ! empty( $item['promoted'] ) ) {
 			<?php if ( $sep ) : ?>
 				<span class="mlc-badge"><?php esc_html_e( 'Uprawnienia SEP', 'mlc' ); ?></span>
 			<?php endif; ?>
+			<?php if ( mlc_is_unclaimed( $id ) ) : ?>
+				<span class="mlc-badge mlc-badge--muted" title="<?php esc_attr_e( 'Dane z publicznych źródeł, firma jeszcze nie przejęła profilu', 'mlc' ); ?>"><?php esc_html_e( 'Profil niezweryfikowany', 'mlc' ); ?></span>
+			<?php endif; ?>
 		</div>
 		<h3 class="mlc-card__title"><a href="<?php echo esc_url( get_permalink( $id ) ); ?>"><?php echo esc_html( $name ); ?></a></h3>
 		<p class="mlc-card__meta">

@@ -218,6 +218,16 @@ class MLC_Dashboard {
 
 	public static function shortcode_join(): string {
 		MLC_Frontend::enqueue();
+		$claim = absint( $_GET['przejmij'] ?? 0 ); // phpcs:ignore
+		if ( $claim && 'mlc_installer' === get_post_type( $claim ) ) {
+			return mlc_get_template_html(
+				'claim.php',
+				array(
+					'installer' => $claim,
+					'errors'    => MLC_Claims::$errors,
+				)
+			);
+		}
 		if ( is_user_logged_in() && mlc_get_user_installer_id( get_current_user_id() ) ) {
 			return '<div class="mlc-notice">' . sprintf(
 				/* translators: %s url */
@@ -234,6 +244,14 @@ class MLC_Dashboard {
 			return mlc_get_template_html( 'login.php' );
 		}
 		$post_id = mlc_get_user_installer_id( get_current_user_id() );
+		$pending = (int) get_user_meta( get_current_user_id(), '_mlc_pending_claim', true );
+		if ( ! $post_id && $pending ) {
+			return '<div class="mlc-notice mlc-notice--warn"><strong>' . esc_html__( 'Dziękujemy!', 'mlc' ) . '</strong> ' . sprintf(
+				/* translators: %s company */
+				esc_html__( 'Prośba o przejęcie profilu „%s” czeka na weryfikację. Sprawdzimy ją zwykle w ciągu 1 dnia roboczego i potwierdzimy e-mailem.', 'mlc' ),
+				esc_html( get_the_title( $pending ) )
+			) . '</div>';
+		}
 		if ( ! $post_id ) {
 			return '<div class="mlc-notice">' . sprintf(
 				__( 'Do tego konta nie jest przypisana żadna firma. <a href="%s">Dodaj firmę</a>.', 'mlc' ),

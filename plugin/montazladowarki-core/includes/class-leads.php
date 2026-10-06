@@ -140,15 +140,28 @@ class MLC_Leads {
 		$body = self::format_body( $meta );
 		foreach ( $ids as $id ) {
 			add_post_meta( $lead, '_mlc_recipient', $id );
-			$to = mlc_get_meta( $id, 'email' );
-			if ( ! is_email( $to ) ) {
+			$to        = mlc_get_meta( $id, 'email' );
+			$unclaimed = mlc_is_unclaimed( $id );
+			$footer    = sprintf( __( "—\nZapytanie z serwisu %s. Klient wysłał je maksymalnie do %d firm.", 'mlc' ), mlc_setting( 'brand' ), (int) mlc_setting( 'lead_max' ) );
+			if ( $unclaimed ) {
+				$footer .= "\n" . sprintf( __( "Twoja firma ma w serwisie profil utworzony z publicznych informacji. Przejmij go bezpłatnie, aby uzupełnić dane: %s\nNie chcesz otrzymywać zapytań? Odpisz na adres %s, a usuniemy profil.", 'mlc' ), MLC_Claims::claim_url( $id ), mlc_setting( 'admin_email' ) );
+			}
+			if ( ! is_email( $to ) && ! $unclaimed ) {
 				$to = get_the_author_meta( 'user_email', (int) get_post_field( 'post_author', $id ) );
 			}
 			if ( is_email( $to ) ) {
 				wp_mail(
 					$to,
 					sprintf( __( '[%1$s] Nowe zapytanie o montaż ładowarki — %2$s', 'mlc' ), mlc_setting( 'brand' ), $place ),
-					sprintf( __( "Dzień dobry,\n\nklient szuka instalatora ładowarki i wybrał Twoją firmę. Odpowiedz bezpośrednio na tego maila.\n\n%s\n\n—\nZapytanie z serwisu %s. Klient wysłał je maksymalnie do %d firm.", 'mlc' ), $body, mlc_setting( 'brand' ), (int) mlc_setting( 'lead_max' ) ),
+					sprintf( __( "Dzień dobry,\n\nklient szuka instalatora ładowarki i wybrał Twoją firmę. Odpowiedz bezpośrednio na tego maila.\n\n%s\n\n%s", 'mlc' ), $body, $footer ),
+					array( 'Reply-To: ' . $name . ' <' . $email . '>' )
+				);
+			} else {
+				// Firma bez e-maila (profil niezweryfikowany) — zapytanie trafia do administratora do przekazania telefonicznie.
+				wp_mail(
+					mlc_setting( 'admin_email' ),
+					sprintf( __( '[%1$s] Zapytanie do przekazania: %2$s', 'mlc' ), mlc_setting( 'brand' ), get_the_title( $id ) ),
+					sprintf( __( "Klient wybrał firmę bez adresu e-mail w serwisie. Przekaż zapytanie telefonicznie i zaproponuj przejęcie profilu.\n\nFirma: %1\$s\nTelefon firmy: %2\$s\nStrona: %3\$s\nLink do przejęcia: %4\$s\n\n%5\$s", 'mlc' ), get_the_title( $id ), mlc_get_meta( $id, 'phone' ), mlc_get_meta( $id, 'website' ), MLC_Claims::claim_url( $id ), $body ),
 					array( 'Reply-To: ' . $name . ' <' . $email . '>' )
 				);
 			}

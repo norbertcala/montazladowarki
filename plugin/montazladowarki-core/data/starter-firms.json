@@ -1,0 +1,1019 @@
+[
+ {
+  "name": "AT-KOM",
+  "city": "Pokrzywnica",
+  "province": "wielkopolskie",
+  "radius_km": 50,
+  "website": "https://wallbox-serwis.pl/",
+  "source_url": "https://wallbox-serwis.pl/stacje-ladowania-pojazdow-poznan/",
+  "phone": "886 952 398",
+  "email": "biuro@wallbox-serwis.pl",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "Wallbox Poznań",
+  "city": "Poznań",
+  "province": "wielkopolskie",
+  "radius_km": 50,
+  "website": "https://wallboxpoznan.pl/",
+  "source_url": "https://wallboxpoznan.pl/",
+  "phone": "730 857 406",
+  "email": "",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "VOLT SERWIS",
+  "city": "Poznań",
+  "province": "wielkopolskie",
+  "radius_km": 50,
+  "website": "https://www.voltservis.pl/",
+  "source_url": "https://www.voltservis.pl/o-nas",
+  "phone": "539 245 497",
+  "email": "",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "Arinea Sp. z o.o.",
+  "city": "Borek",
+  "province": "wielkopolskie",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://www.stacje.com.pl/",
+  "source_url": "https://www.stacje.com.pl/wallbox-instalacja",
+  "phone": "+48 222 662 777",
+  "email": "biuro@arinea.pl",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "BAMAT",
+  "city": "Piła",
+  "province": "wielkopolskie",
+  "radius_km": 50,
+  "website": "https://wallbox-pila.pl/",
+  "source_url": "https://wallbox-pila.pl/",
+  "phone": "694 337 577",
+  "email": "",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "G-PRO ECO ENERGY",
+  "city": "Kalisz",
+  "province": "wielkopolskie",
+  "radius_km": 100,
+  "website": "https://g-pro.com.pl/",
+  "source_url": "https://g-pro.com.pl/oferta/stacje-ladowania/",
+  "phone": "+48 515 686 622",
+  "email": "",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "3DSmart",
+  "city": "Kalisz",
+  "province": "wielkopolskie",
+  "radius_km": 50,
+  "website": "https://3dsmart.pl/",
+  "source_url": "https://3dsmart.pl/",
+  "phone": "+48 577 15 13 15",
+  "email": "biuro@3dsmart.pl",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "Aurelum Sp. z o.o.",
+  "city": "Kalisz",
+  "province": "wielkopolskie",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://www.aurelum.pl/",
+  "source_url": "https://www.aurelum.pl/",
+  "phone": "+48 579 640 309",
+  "email": "biuro@aurelum.pl",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "Eko Energia",
+  "city": "Ostrów Wielkopolski",
+  "province": "wielkopolskie",
+  "radius_km": 50,
+  "website": "https://ekoenergia.sklep.pl/",
+  "source_url": "https://ekoenergia.sklep.pl/",
+  "phone": "+48 791 777 999",
+  "email": "biuro@ekoenergia.sklep.pl",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "SunFeel Energy",
+  "city": "Jagodowo",
+  "province": "kujawsko-pomorskie",
+  "radius_km": 50,
+  "website": "https://sunfeel.pl/",
+  "source_url": "https://sunfeel.pl/ladowarki-i-carporty-bydgoszcz/",
+  "phone": "+48 660 702 434",
+  "email": "biuro@sunfeel.pl",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ],
+  "verified_source": true,
+  "area_city": "Bydgoszcz"
+ },
+ {
+  "name": "Inter-Serwis",
+  "city": "Mogilno",
+  "province": "kujawsko-pomorskie",
+  "radius_km": 50,
+  "website": "https://inter-serwis.pl/",
+  "source_url": "https://inter-serwis.pl/oferta/ladowarki-samochodowe/",
+  "phone": "+48 696 476 322",
+  "email": "poczta@inter-serwis.pl",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "Twój Elektryk Włocławek – Instal Solution",
+  "city": "Włocławek",
+  "province": "kujawsko-pomorskie",
+  "radius_km": 50,
+  "website": "https://www.elektryk.wloclawek.pl/",
+  "source_url": "https://www.elektryk.wloclawek.pl/ev.php",
+  "phone": "+48 510 156 267",
+  "email": "kontakt@elektryk.wloclawek.pl",
+  "services": [
+   "montaz-wallboxa"
+  ],
+  "verified_source": true
+ },
+ {
+  "name": "AmperGo",
+  "city": "Kraków",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://ampergo.pl/",
+  "source_url": "https://ampergo.pl/montaz",
+  "services": [
+   "montaz-wallboxa",
+   "sprzedaz-ladowarek"
+  ]
+ },
+ {
+  "name": "Green Wallbox",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://greenwallbox.pl/",
+  "source_url": "https://greenwallbox.pl/en/pages/montaz-stacji-ladowania-green-wallbox",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Eloptiobox",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://eloptiobox.pl/",
+  "source_url": "https://eloptiobox.pl/stacje-ladowania-samochodow-elektrycznych-krakow/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "GreenKick",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://greenkick.com.pl/",
+  "source_url": "https://greenkick.com.pl/stacje-ladowania-polska/wroclaw/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "3EV",
+  "city": "Jabłonna",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://3ev.pl/",
+  "source_url": "https://3ev.pl/montaz-stacji-ladowania/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox.pl",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://wallbox.pl/",
+  "source_url": "https://wallbox.pl/uslugi/montaz-ladowarek-do-samochodow-elektrycznych",
+  "services": [
+   "montaz-wallboxa",
+   "sprzedaz-ladowarek"
+  ]
+ },
+ {
+  "name": "Evolucja",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://evolucja.pro/",
+  "source_url": "https://evolucja.pro/montaz-stacji-ladowania/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Ilontech",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://ilontech.pl/",
+  "source_url": "https://ilontech.pl/montaz",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "EQUAY",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://equay.pl/",
+  "source_url": "https://equay.pl/",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "Sigma",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://sigmapolska.pl/",
+  "source_url": "https://sigmapolska.pl/stacje-ladowania-samochodow-w-bielsku-bialej-popularne-miejsca/",
+  "services": [
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "Wallbox Energy",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://wallboxenergy.pl/",
+  "source_url": "https://wallboxenergy.pl/montaz-ladowarki-do-samochodu-elektrycznego/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "EasySun",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://easysun.pl/",
+  "source_url": "https://easysun.pl/stacja-ladowania/gliwice/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "MagazynEnergii360",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://magazynenergii360.pl/",
+  "source_url": "https://magazynenergii360.pl/uslugi/ladowarka-do-samochodu-elektrycznego-opole/",
+  "services": [
+   "montaz-wallboxa",
+   "magazyn-energii"
+  ]
+ },
+ {
+  "name": "EcoPlug",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://www.ecoplug.pl/",
+  "source_url": "https://www.ecoplug.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "GO+EAuto",
+  "city": "",
+  "radius_km": 1000,
+  "nationwide": true,
+  "website": "https://gopluseauto.pl/",
+  "source_url": "https://gopluseauto.pl/",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "elektryk24-warszawa.pl",
+  "city": "Warszawa",
+  "website": "https://elektryk24-warszawa.pl/",
+  "source_url": "https://elektryk24-warszawa.pl/montaz-ladowarek-ev-warszawa/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Warszawa",
+  "city": "Warszawa",
+  "website": "https://wallboxwarszawa.pl/",
+  "source_url": "https://wallboxwarszawa.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Vima Energia",
+  "city": "Raszyn",
+  "website": "https://vimaenergia.pl/",
+  "source_url": "https://vimaenergia.pl/oferta/elektromobilnosc/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Green Benefit",
+  "city": "Warszawa",
+  "website": "https://greenbenefit.pl/",
+  "source_url": "https://greenbenefit.pl/stacje-ladowania-samochodow-elektrycznych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "EviaCharge",
+  "city": "Warszawa",
+  "website": "https://eviacharge.pl/",
+  "source_url": "https://eviacharge.pl/uslugi/montaz-wallboxow",
+  "services": [
+   "montaz-wallboxa",
+   "garaz-podziemny"
+  ]
+ },
+ {
+  "name": "Mikoli",
+  "city": "Warszawa",
+  "website": "https://mikoli.pl/",
+  "source_url": "https://mikoli.pl/montaz-wallboxa-w-domu/",
+  "services": [
+   "montaz-wallboxa",
+   "garaz-podziemny"
+  ]
+ },
+ {
+  "name": "HAMAG",
+  "city": "Warszawa",
+  "radius_km": 100,
+  "website": "https://hamag.com.pl/",
+  "source_url": "https://hamag.com.pl/pages/ladowarki-ev.php",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Revon",
+  "city": "Warszawa",
+  "website": "https://revon.pl/",
+  "source_url": "https://revon.pl/ekspertyza-ladowarki-warszawa/",
+  "services": [
+   "montaz-wallboxa",
+   "garaz-podziemny",
+   "audyt-instalacji"
+  ]
+ },
+ {
+  "name": "auto-ladowarki.pl",
+  "city": "Wołomin",
+  "website": "https://auto-ladowarki.pl/",
+  "source_url": "https://auto-ladowarki.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "DSK Electra",
+  "city": "Radom",
+  "radius_km": 75,
+  "website": "https://dskelectra.pl/",
+  "source_url": "https://dskelectra.pl/instalacja-ladowarek-samochodowych",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Helios Power",
+  "city": "Radom",
+  "website": "https://heliospower.pl/",
+  "source_url": "https://heliospower.pl/oferta/ladowarki-samochodowe/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Gloter Energy",
+  "city": "Płock",
+  "website": "https://gloter.pl/",
+  "source_url": "https://gloter.pl/oferta/stacje-ladowania/stacja-ladowania-plock/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Kraków",
+  "city": "Kraków",
+  "website": "https://wallboxkrakow.pl/",
+  "source_url": "https://wallboxkrakow.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Agel Elektryka",
+  "city": "Kraków",
+  "website": "https://agel-elektryka.pl/",
+  "source_url": "https://agel-elektryka.pl/elektryk-krakow/montaz-stacji-ladowania-ladowarek-samochodow-elektrycznych.html",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "elektryk-krakow.pl",
+  "city": "Kraków",
+  "website": "https://elektryk-krakow.pl/",
+  "source_url": "https://elektryk-krakow.pl/montaz-stacji-ladowania-ac/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Futurel",
+  "city": "Kraków",
+  "website": "https://futurel.pl/",
+  "source_url": "https://futurel.pl/montaz-ladowarki-ev/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "BISOLAR",
+  "city": "Kraków",
+  "website": "https://bisolar.pl/",
+  "source_url": "https://bisolar.pl/domowe-ladowarki-do-aut-elektrycznych/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Simplikor",
+  "city": "Tarnów",
+  "website": "https://simplikor.pl/",
+  "source_url": "https://simplikor.pl/uslugi/stacja-ladowania-pojazdow-elektrycznych-tarnow/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Wallbox Rzeszów",
+  "city": "Rzeszów",
+  "website": "https://wallboxrzeszow.pl/",
+  "source_url": "https://wallboxrzeszow.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "RES Inwestycje",
+  "city": "Rzeszów",
+  "website": "https://ressinwestycje.pl/",
+  "source_url": "https://ressinwestycje.pl/projektowanie-instalacji/stacje-ladowania-samochodow-elektrycznych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Eko Energia Polska",
+  "city": "Kielce",
+  "website": "https://www.ekoenergiapolska.pl/",
+  "source_url": "https://www.ekoenergiapolska.pl/oferta/ladowarki-do-samochodow-elektrycznych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Solaris OZE",
+  "city": "Kielce",
+  "website": "https://solarisoze.pl/",
+  "source_url": "https://solarisoze.pl/ladowarki-elektryczne/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Perfekt Instal",
+  "city": "Kielce",
+  "website": "https://perfektinstalkielce.pl/",
+  "source_url": "https://perfektinstalkielce.pl/nasze-uslugi/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Wrocław",
+  "city": "Wrocław",
+  "website": "https://wallboxwroclaw.pl/",
+  "source_url": "https://wallboxwroclaw.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ENRG4U",
+  "city": "Wrocław",
+  "website": "https://enrg4u.pl/",
+  "source_url": "https://enrg4u.pl/montaz-stacji-ladowania-samochodow-elektrycznych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ESP Energia",
+  "city": "Wrocław",
+  "website": "http://esp-energia.pl/",
+  "source_url": "http://esp-energia.pl/oferta/stacje-ladowania-samochodow/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "elektrykwroclaw.eu",
+  "city": "Wrocław",
+  "website": "https://elektrykwroclaw.eu/",
+  "source_url": "https://elektrykwroclaw.eu/montaz-stacji-ladowania-pojazdow-wroclaw/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ATUM Instalacje",
+  "city": "Wrocław",
+  "website": "https://www.atum-instalacje.pl/",
+  "source_url": "https://www.atum-instalacje.pl/stacje-ladowania-ev/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika",
+   "magazyn-energii"
+  ]
+ },
+ {
+  "name": "Poline",
+  "city": "Wrocław",
+  "website": "https://poline.pl/",
+  "source_url": "https://poline.pl/projektowanie-dostawa-i-montaz-ladowarek-ev-kompleksowa-usluga-dla-twojej-inwestycji/",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "LuxEnergy",
+  "city": "Wałbrzych",
+  "website": "https://lux-instalacje.pl/",
+  "source_url": "https://lux-instalacje.pl/stacja-ladowania-samochodow-elektrycznych/walbrzych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "fotowoltaika-legnica.pl",
+  "city": "Legnica",
+  "website": "https://www.fotowoltaika-legnica.pl/",
+  "source_url": "https://www.fotowoltaika-legnica.pl/uslugi/stacje-ladowania/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Pro-Instalacje",
+  "city": "Zielona Góra",
+  "website": "https://pro-instalacje.pl/",
+  "source_url": "https://pro-instalacje.pl/stacje-ladowania-ev/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Katowice",
+  "city": "Katowice",
+  "website": "https://wallboxkatowice.pl/",
+  "source_url": "https://wallboxkatowice.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "X-mont",
+  "city": "Katowice",
+  "website": "https://x-mont.pl/",
+  "source_url": "https://x-mont.pl/oferta/stacje-ladowania-samochodow-elektrycznych",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "Fotowoltaika Katowice",
+  "city": "Katowice",
+  "website": "https://fotowoltaikakatowice.com/",
+  "source_url": "https://fotowoltaikakatowice.com/ladowarka-do-pojazdu-elektrycznego/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "DŹWIG-SERWIS",
+  "city": "Bielsko-Biała",
+  "website": "https://dzwigserwis.com/",
+  "source_url": "https://dzwigserwis.com/ladowarki-samochodowe.html",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "DioCom Sp. z o.o.",
+  "city": "Bielsko-Biała",
+  "website": "https://www.fotowoltaika-bielsko.pl/",
+  "source_url": "https://www.fotowoltaika-bielsko.pl/stacje-ladowania",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Elektrycy Opole",
+  "city": "Opole",
+  "website": "https://www.elektrykiopole.pl/",
+  "source_url": "https://www.elektrykiopole.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Elektrobryka",
+  "city": "Opole",
+  "website": "https://www.elektrobryka.pl/",
+  "source_url": "https://www.elektrobryka.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Przydomowe Ładowarki",
+  "city": "Opole",
+  "website": "https://www.przydomoweladowarki.pl/",
+  "source_url": "https://www.przydomoweladowarki.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ARTTAG – GreenEV",
+  "city": "Opole",
+  "website": "https://arttag.pl/",
+  "source_url": "https://arttag.pl/elektromobilnosc/",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "Wallbox Łódź",
+  "city": "Łódź",
+  "website": "https://wallboxlodz.pl/",
+  "source_url": "https://wallboxlodz.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Mr Smart Home",
+  "city": "Łódź",
+  "website": "https://mrsmarthome.pl/",
+  "source_url": "https://mrsmarthome.pl/elektromobilnosc-stacje-ladowania-pojazdow/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Energia Słońca",
+  "city": "Łódź",
+  "website": "https://energiaslonca.pl/",
+  "source_url": "https://energiaslonca.pl/oferta/ladowarki-samochodowe-lodz",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Lemniskata",
+  "city": "Piotrków Trybunalski",
+  "website": "https://lemniskata.pl/",
+  "source_url": "https://lemniskata.pl/montaz",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Lublin",
+  "city": "Lublin",
+  "website": "https://wallboxlublin.pl/",
+  "source_url": "https://wallboxlublin.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Elektralink",
+  "city": "Lublin",
+  "website": "https://elektralink.pl/",
+  "source_url": "https://elektralink.pl/domowe-stacje-ladowania-samochodow-elektrycznych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Enepar",
+  "city": "Lublin",
+  "website": "https://enepar.pl/",
+  "source_url": "https://enepar.pl/ladowarka-przydomowa-ev-w-lublinie/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ZielonaE",
+  "city": "Lublin",
+  "website": "https://zielonae.pl/",
+  "source_url": "https://zielonae.pl/elektromobilnosc/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Białystok Elektryk",
+  "city": "Białystok",
+  "website": "https://bialystokelektryk.pl/",
+  "source_url": "https://bialystokelektryk.pl/uslugi-elektryczne-bialystok/modernizacja-instalacji-elektrycznej-bialystok-i-okolice/montaz-ladowarki-samochodu-elektrycznego-bialystok/",
+  "services": [
+   "montaz-wallboxa",
+   "garaz-podziemny"
+  ]
+ },
+ {
+  "name": "Wallbox Białystok",
+  "city": "Białystok",
+  "website": "https://wallboxbialystok.pl/",
+  "source_url": "https://wallboxbialystok.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "BISA Automatyka",
+  "city": "Białystok",
+  "website": "https://bisa-automatyka.pl/",
+  "source_url": "https://bisa-automatyka.pl/montaz-ladowarek-samochodowych",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Grupa Elektro",
+  "city": "Białystok",
+  "website": "https://grupa-elektro.pl/",
+  "source_url": "https://grupa-elektro.pl/ladowarki-samochodowe/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Electra Instal",
+  "city": "Białystok",
+  "website": "https://electra-instal.pl/",
+  "source_url": "https://electra-instal.pl/ladowarki-ev/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Gdańsk",
+  "city": "Gdańsk",
+  "website": "https://wallboxgdansk.pl/",
+  "source_url": "https://wallboxgdansk.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Wallbox Gdynia",
+  "city": "Gdynia",
+  "website": "https://wallboxgdynia.pl/",
+  "source_url": "https://wallboxgdynia.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ŁadujEV",
+  "city": "Gdańsk",
+  "website": "https://ladujev.pl/",
+  "source_url": "https://ladujev.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Electro Gdynia",
+  "city": "Gdynia",
+  "website": "https://electro-gdynia.pl/",
+  "source_url": "https://electro-gdynia.pl/poradnik/stacja-ladowania-samochodu-elektrycznego-w-domu-w-gdyni/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "elektryk.gda.pl",
+  "city": "Gdańsk",
+  "website": "https://www.elektryk.gda.pl/",
+  "source_url": "https://www.elektryk.gda.pl/uslugi/ladowarki-aut-elektrycznych",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Technit",
+  "city": "Gdańsk",
+  "website": "https://technit.pl/",
+  "source_url": "https://technit.pl/ladowarki-do-samochodow-elektrycznych-sprzedaz-i-montaz/",
+  "services": [
+   "montaz-wallboxa",
+   "sprzedaz-ladowarek"
+  ]
+ },
+ {
+  "name": "fotowoltaika.slupsk.pl",
+  "city": "Słupsk",
+  "website": "https://www.fotowoltaika.slupsk.pl/",
+  "source_url": "https://www.fotowoltaika.slupsk.pl/uslugi/stacje-ladowania/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Wallbox Szczecin",
+  "city": "Szczecin",
+  "website": "https://wallboxszczecin.pl/",
+  "source_url": "https://wallboxszczecin.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "PowerPlug",
+  "city": "Szczecin",
+  "website": "https://powerplug.pl/",
+  "source_url": "https://powerplug.pl/index.html",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Clear Energy",
+  "city": "Szczecin",
+  "website": "https://clearenergy.pl/",
+  "source_url": "https://clearenergy.pl/ladowarki-samochodowe-szczecin/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "fotowoltaika-koszalin.pl",
+  "city": "Koszalin",
+  "website": "https://www.fotowoltaika-koszalin.pl/",
+  "source_url": "https://www.fotowoltaika-koszalin.pl/uslugi/stacje-ladowania/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "Res Energy",
+  "city": "Olsztyn",
+  "website": "https://www.resenergy.pl/",
+  "source_url": "https://www.resenergy.pl/stacje-ladowania-aut-elektrycznych/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "Electro Elbląg",
+  "city": "Elbląg",
+  "website": "https://electroelblag.pl/",
+  "source_url": "https://electroelblag.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "E-PowerOn",
+  "city": "Poznań",
+  "website": "https://e-poweron.pl/",
+  "source_url": "https://e-poweron.pl/en/what-we-do/energy-services/vehicle-charging-stations/",
+  "services": [
+   "montaz-wallboxa",
+   "ladowarki-dla-firm"
+  ]
+ },
+ {
+  "name": "EV-READY",
+  "city": "Poznań",
+  "website": "http://www.ev-ready.pl/",
+  "source_url": "http://www.ev-ready.pl/",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "ELTECH Poznań",
+  "city": "Poznań",
+  "website": "https://eltech-poznan.pl/",
+  "source_url": "https://eltech-poznan.pl/265-ladowarki-do-pojazdow-elektrycznych",
+  "services": [
+   "montaz-wallboxa"
+  ]
+ },
+ {
+  "name": "AM Group Solar",
+  "city": "Bydgoszcz",
+  "website": "https://amgroupsolar.com/",
+  "source_url": "https://amgroupsolar.com/stacje-ladowania-pojazdow/",
+  "services": [
+   "montaz-wallboxa",
+   "fotowoltaika"
+  ]
+ },
+ {
+  "name": "ZTP Elektryk",
+  "city": "Bydgoszcz",
+  "website": "https://ztp-elektryk.pl/",
+  "source_url": "https://ztp-elektryk.pl/",
+  "services": [
+   "montaz-wallboxa",
+   "audyt-instalacji"
+  ]
+ }
+]

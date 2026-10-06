@@ -32,6 +32,8 @@ require_once MLC_DIR . 'includes/class-dashboard.php';
 require_once MLC_DIR . 'includes/class-leads.php';
 require_once MLC_DIR . 'includes/class-seo.php';
 require_once MLC_DIR . 'includes/class-frontend.php';
+require_once MLC_DIR . 'includes/class-importer.php';
+require_once MLC_DIR . 'includes/class-claims.php';
 
 register_activation_hook( __FILE__, array( 'MLC_Install', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'MLC_Install', 'deactivate' ) );
@@ -48,5 +50,7 @@ add_action(
 		MLC_Leads::init();
 		MLC_SEO::init();
 		MLC_Frontend::init();
+		MLC_Importer::init();
+		MLC_Claims::init();
 	}
 );

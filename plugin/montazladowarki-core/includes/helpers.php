@@ -99,6 +99,13 @@ function mlc_is_promoted( int $post_id ): bool {
 	return $until > time();
 }
 
+/**
+ * Profil zaimportowany z publicznych źródeł, jeszcze nieprzejęty przez firmę.
+ */
+function mlc_is_unclaimed( int $post_id ): bool {
+	return '1' === (string) get_post_meta( $post_id, '_mlc_unclaimed', true );
+}
+
 function mlc_is_verified( int $post_id ): bool {
 	return (bool) get_post_meta( $post_id, '_mlc_verified', true );
 }

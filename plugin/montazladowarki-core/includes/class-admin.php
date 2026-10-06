@@ -189,6 +189,8 @@ class MLC_Admin {
 				$until = (int) get_post_meta( $post_id, '_mlc_promoted_until', true );
 				echo $until > time() ? '★ ' . esc_html( wp_date( 'd.m.Y', $until ) ) : '—';
 				echo mlc_is_verified( $post_id ) ? '<br>✓ ' . esc_html__( 'zweryfikowana', 'mlc' ) : '';
+				echo mlc_is_unclaimed( $post_id ) ? '<br>○ ' . esc_html__( 'niezweryfikowany (import)', 'mlc' ) : '';
+				echo get_post_meta( $post_id, '_mlc_claim_user', true ) ? '<br><strong>⚑ ' . esc_html__( 'prośba o przejęcie', 'mlc' ) . '</strong>' : '';
 				break;
 			case 'mlc_leads':
 				echo (int) get_post_meta( $post_id, '_mlc_lead_count', true );
@@ -291,6 +293,21 @@ class MLC_Admin {
 				<input type="hidden" name="action" value="mlc_tool"><input type="hidden" name="tool" value="places">
 				<?php submit_button( __( 'Zaimportuj ponownie miejscowości', 'mlc' ), 'secondary', 'submit', false ); ?>
 			</form>
+			<h2><?php esc_html_e( 'Import firm', 'mlc' ); ?></h2>
+			<p><?php esc_html_e( 'Firmy z importu są publikowane jako „Profil niezweryfikowany” i mogą zostać przejęte przez właścicieli. Duplikaty (ta sama domena strony WWW) są pomijane.', 'mlc' ); ?></p>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:inline-block;margin-right:8px">
+				<?php wp_nonce_field( 'mlc_tool' ); ?>
+				<input type="hidden" name="action" value="mlc_tool"><input type="hidden" name="tool" value="starter">
+				<?php submit_button( __( 'Zaimportuj bazę startową (dołączoną do wtyczki)', 'mlc' ), 'secondary', 'submit', false ); ?>
+			</form>
+			<form method="post" enctype="multipart/form-data" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:inline-block">
+				<?php wp_nonce_field( 'mlc_tool' ); ?>
+				<input type="hidden" name="action" value="mlc_tool"><input type="hidden" name="tool" value="upload">
+				<input type="file" name="mlc_file" accept=".csv,.json">
+				<?php submit_button( __( 'Importuj plik CSV/JSON', 'mlc' ), 'secondary', 'submit', false ); ?>
+			</form>
+			<p class="description"><?php esc_html_e( 'Kolumny CSV: name, city, website, source_url, phone, email, services (slugi oddzielone |), radius_km, nationwide (1/0), description.', 'mlc' ); ?></p>
+
 			<p class="description"><?php esc_html_e( 'Dane miejscowości: Państwowy Rejestr Nazw Geograficznych (PRNG), opracowanie: github.com/jjbartek/polskie-miejscowosci.', 'mlc' ); ?></p>
 		</div>
 		<?php
@@ -307,6 +324,19 @@ class MLC_Admin {
 			$msg = 'counts:' . count( MLC_Search::rebuild_city_counts() );
 		} elseif ( 'places' === $tool ) {
 			$msg = 'places:' . MLC_Install::import_places();
+		} elseif ( 'starter' === $tool ) {
+			$r   = MLC_Importer::import_file( MLC_DIR . 'data/starter-firms.json' );
+			$msg = 'import:' . $r['added'] . ':' . $r['skipped'];
+		} elseif ( 'upload' === $tool && ! empty( $_FILES['mlc_file']['tmp_name'] ) ) {
+			$name = sanitize_file_name( wp_unslash( $_FILES['mlc_file']['name'] ?? '' ) );
+			$ext  = strtolower( pathinfo( $name, PATHINFO_EXTENSION ) );
+			if ( in_array( $ext, array( 'csv', 'json' ), true ) ) {
+				$tmp = wp_tempnam( 'mlc-import.' . $ext ) . '.' . $ext;
+				move_uploaded_file( $_FILES['mlc_file']['tmp_name'], $tmp ); // phpcs:ignore
+				$r   = MLC_Importer::import_file( $tmp );
+				@unlink( $tmp ); // phpcs:ignore
+				$msg = 'import:' . $r['added'] . ':' . $r['skipped'];
+			}
 		}
 		wp_safe_redirect( add_query_arg( 'mlc_msg', rawurlencode( $msg ), admin_url( 'edit.php?post_type=mlc_installer&page=mlc-settings' ) ) );
 		exit;
@@ -317,9 +347,13 @@ class MLC_Admin {
 			return;
 		}
 		$parts = explode( ':', sanitize_text_field( wp_unslash( $_GET['mlc_msg'] ) ) ); // phpcs:ignore
-		$text  = 'counts' === $parts[0]
-			? sprintf( __( 'Przeliczono. Miast z firmami: %d.', 'mlc' ), (int) ( $parts[1] ?? 0 ) )
-			: sprintf( __( 'Zaimportowano miejscowości: %d.', 'mlc' ), (int) ( $parts[1] ?? 0 ) );
+		if ( 'import' === $parts[0] ) {
+			$text = sprintf( __( 'Dodano firm: %1$d, pominięto: %2$d. Strony miast przeliczą się w ciągu minuty.', 'mlc' ), (int) ( $parts[1] ?? 0 ), (int) ( $parts[2] ?? 0 ) );
+		} else {
+			$text = 'counts' === $parts[0]
+				? sprintf( __( 'Przeliczono. Miast z firmami: %d.', 'mlc' ), (int) ( $parts[1] ?? 0 ) )
+				: sprintf( __( 'Zaimportowano miejscowości: %d.', 'mlc' ), (int) ( $parts[1] ?? 0 ) );
+		}
 		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html( $text ) . '</p></div>';
 	}
 }

@@ -275,3 +275,11 @@
 	.mlc-filters .mlc-chip span { white-space: nowrap; }
 	.mlc-card__meta span + span::before { display: none; }
 }
+
+/* Profile niezweryfikowane */
+.mlc-badge--muted { background: transparent; border-style: dashed; color: var(--mlc-muted); }
+.mlc-unclaimed { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin: -1rem 0 2rem; padding: 1rem 1.2rem; border-radius: 14px; border: 1.5px dashed var(--mlc-line); background: var(--mlc-surface); }
+.mlc-unclaimed p { margin: .25rem 0 0; color: var(--mlc-muted); font-size: .92rem; max-width: 70ch; }
+.mlc-report { margin: 2rem 0 0; font-size: .92rem; }
+.mlc-report summary { cursor: pointer; color: var(--mlc-muted); }
+.mlc-report form { margin-top: 1rem; max-width: 720px; }

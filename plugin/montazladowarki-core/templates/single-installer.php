@@ -97,6 +97,22 @@ while ( have_posts() ) :
 				</div>
 			</header>
 
+			<?php if ( mlc_is_unclaimed( $id ) ) : ?>
+				<?php $src = (string) get_post_meta( $id, '_mlc_source_url', true ); ?>
+				<aside class="mlc-unclaimed" id="mlc-claim">
+					<div>
+						<strong><?php esc_html_e( 'Profil niezweryfikowany', 'mlc' ); ?></strong>
+						<p>
+							<?php esc_html_e( 'Dane pochodzą z publicznie dostępnych informacji o firmie i mogą być niepełne. Firma nie zarządza jeszcze tym profilem.', 'mlc' ); ?>
+							<?php if ( $src ) : ?>
+								<a href="<?php echo esc_url( $src ); ?>" rel="nofollow noopener" target="_blank"><?php esc_html_e( 'Źródło', 'mlc' ); ?> ↗</a>
+							<?php endif; ?>
+						</p>
+					</div>
+					<a class="mlc-btn mlc-btn--sm" href="<?php echo esc_url( MLC_Claims::claim_url( $id ) ); ?>"><?php esc_html_e( 'To moja firma — przejmij profil', 'mlc' ); ?></a>
+				</aside>
+			<?php endif; ?>
+
 			<div class="mlc-profile__grid">
 				<div class="mlc-profile__main">
 					<?php if ( get_the_content() ) : ?>
@@ -168,6 +184,33 @@ while ( have_posts() ) :
 				);
 				?>
 			</form>
+
+			<details class="mlc-report" id="mlc-report" <?php echo ( MLC_Claims::$removal_sent || MLC_Claims::$errors ) ? 'open' : ''; ?>>
+				<summary><?php esc_html_e( 'Dane są nieaktualne albo to Twoja firma i nie chcesz tu być? Zgłoś to', 'mlc' ); ?></summary>
+				<?php if ( MLC_Claims::$removal_sent ) : ?>
+					<p class="mlc-notice mlc-notice--ok"><?php esc_html_e( 'Dziękujemy, zgłoszenie dotarło. Odpowiemy na podany e-mail.', 'mlc' ); ?></p>
+				<?php else : ?>
+					<form method="post" action="#mlc-report">
+						<?php if ( MLC_Claims::$errors ) : ?>
+							<div class="mlc-errors" role="alert"><?php echo esc_html( implode( ' ', MLC_Claims::$errors ) ); ?></div>
+						<?php endif; ?>
+						<?php wp_nonce_field( 'mlc_removal', '_mlc_nonce' ); ?>
+						<input type="hidden" name="mlc_action" value="removal">
+						<input type="hidden" name="installer" value="<?php echo (int) $id; ?>">
+						<input type="hidden" name="_mlc_t" value="<?php echo (int) time(); ?>">
+						<div class="mlc-hp" aria-hidden="true"><label>WWW <input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+						<div class="mlc-grid">
+							<p class="mlc-field"><label for="mlc-rm-type"><?php esc_html_e( 'Czego dotyczy zgłoszenie?', 'mlc' ); ?></label>
+								<select id="mlc-rm-type" name="type"><option value="fix"><?php esc_html_e( 'Poprawka danych', 'mlc' ); ?></option><option value="remove"><?php esc_html_e( 'Usunięcie profilu', 'mlc' ); ?></option></select></p>
+							<p class="mlc-field"><label for="mlc-rm-email"><?php esc_html_e( 'Twój e-mail', 'mlc' ); ?> *</label>
+								<input id="mlc-rm-email" type="email" name="email" required></p>
+							<p class="mlc-field mlc-field--full"><label for="mlc-rm-reason"><?php esc_html_e( 'Szczegóły', 'mlc' ); ?></label>
+								<textarea id="mlc-rm-reason" name="reason" rows="3"></textarea></p>
+						</div>
+						<button class="mlc-btn mlc-btn--sm" type="submit"><?php esc_html_e( 'Wyślij zgłoszenie', 'mlc' ); ?></button>
+					</form>
+				<?php endif; ?>
+			</details>
 		</div>
 	</main>
 	<?php

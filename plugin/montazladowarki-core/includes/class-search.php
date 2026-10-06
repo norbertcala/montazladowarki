@@ -44,7 +44,8 @@ class MLC_Search {
 		// phpcs:disable WordPress.DB.PreparedSQL
 		$sql = "SELECT m.installer_id, m.distance, m.radius_km,
 				( {$promo_enabled} = 1 AND COALESCE(CAST(pm.meta_value AS UNSIGNED), 0) > {$now} ) AS promoted,
-				( COALESCE(vm.meta_value, '') = '1' ) AS verified
+				( COALESCE(vm.meta_value, '') = '1' ) AS verified,
+				( COALESCE(um.meta_value, '') = '1' ) AS unclaimed
 			FROM (
 				SELECT a.installer_id, MIN({$dist}) AS distance, MAX(a.radius_km) AS radius_km
 				FROM {$areas} a
@@ -54,7 +55,8 @@ class MLC_Search {
 			) m
 			LEFT JOIN {$wpdb->postmeta} pm ON pm.post_id = m.installer_id AND pm.meta_key = '_mlc_promoted_until'
 			LEFT JOIN {$wpdb->postmeta} vm ON vm.post_id = m.installer_id AND vm.meta_key = '_mlc_verified'
-			ORDER BY promoted DESC, (m.radius_km >= 1000) ASC, verified DESC, m.distance ASC";
+			LEFT JOIN {$wpdb->postmeta} um ON um.post_id = m.installer_id AND um.meta_key = '_mlc_unclaimed'
+			ORDER BY promoted DESC, (m.radius_km >= 1000) ASC, unclaimed ASC, verified DESC, m.distance ASC";
 		$rows = $wpdb->get_results( $sql, ARRAY_A );
 		// phpcs:enable
 
@@ -71,6 +73,7 @@ class MLC_Search {
 				'promoted'   => (bool) $r['promoted'],
 				'verified'   => (bool) $r['verified'],
 				'nationwide' => (int) $r['radius_km'] >= 1000,
+				'unclaimed'  => (bool) $r['unclaimed'],
 			);
 		}
 		if ( $items ) {
